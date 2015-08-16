@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="tienda-virtual" transaction-type="RESOURCE_LOCAL">
-		<properties>
+		<class>model.entity.Usuarios</class>
+		<class>model.entity.Roles</class>
+		<class>model.entity.Privilegios</class>
+	<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tienda-online"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.password" value="root"/>
@@ -9,3 +12,4 @@
 		</properties>
 	</persistence-unit>
 </persistence>
+
