@@ -15,7 +15,7 @@ public class Roles implements Serializable {
 	@Id
 	@Basic (optional = false)
 	@Column (name = "idroles")
-	private int idroles;
+	private Integer idroles;
 	
 	@Basic (optional = false)
 	@Column (name = "rolesNombre")
@@ -27,5 +27,40 @@ public class Roles implements Serializable {
 	public Roles() {
 		super();
 	}
+	public Roles(Integer idroles){
+		this.idroles = idroles;
+	}
+	
+	public Roles(Integer idroles, String rolesNombre, String rolesDescripcion){
+		this.idroles = idroles;
+		this.rolesNombre = rolesNombre;
+		this.rolesDescripcion = rolesDescripcion;
+	}
+	
+
+	public Integer getIdroles() {
+		return idroles;
+	}
+
+	public void setIdroles(Integer idroles) {
+		this.idroles = idroles;
+	}
+
+	public String getRolesNombre() {
+		return rolesNombre;
+	}
+
+	public void setRolesNombre(String rolesNombre) {
+		this.rolesNombre = rolesNombre;
+	}
+
+	public String getRolesDescripcion() {
+		return rolesDescripcion;
+	}
+
+	public void setRolesDescripcion(String rolesDescripcion) {
+		this.rolesDescripcion = rolesDescripcion;
+	}
+	
    
 }

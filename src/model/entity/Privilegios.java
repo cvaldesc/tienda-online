@@ -27,5 +27,29 @@ public class Privilegios implements Serializable {
 	public Privilegios() {
 		super();
 	}
+
+	public Integer getIdPrivilegios() {
+		return idPrivilegios;
+	}
+
+	public void setIdPrivilegios(Integer idPrivilegios) {
+		this.idPrivilegios = idPrivilegios;
+	}
+
+	public String getNombrePrivilegios() {
+		return nombrePrivilegios;
+	}
+
+	public void setNombrePrivilegios(String nombrePrivilegios) {
+		this.nombrePrivilegios = nombrePrivilegios;
+	}
+
+	public String getDetallePrivilegios() {
+		return detallePrivilegios;
+	}
+
+	public void setDetallePrivilegios(String detallePrivilegios) {
+		this.detallePrivilegios = detallePrivilegios;
+	}
    
 }
