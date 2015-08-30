@@ -1,14 +1,34 @@
 package model.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
+
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Entity implementation class for Entity: DatosRegistro
  *
  */
 @Entity
+@XmlRootElement
 @Table (name ="datosregistro")
+@NamedQueries({
+    @NamedQuery(name = "Datosregistro.findAll", query = "SELECT d FROM DatosRegistro d"),
+    @NamedQuery(name = "Datosregistro.findByIdRegistro", query = "SELECT d FROM DatosRegistro d WHERE d.idRegistro = :idRegistro"),
+    @NamedQuery(name = "Datosregistro.findByNombre", query = "SELECT d FROM DatosRegistro d WHERE d.nombre = :nombre"),
+    @NamedQuery(name = "Datosregistro.findByApellidoPaterno", query = "SELECT d FROM DatosRegistro d WHERE d.apellidoPaterno = :apellidoPaterno"),
+    @NamedQuery(name = "Datosregistro.findByApellidoMaterno", query = "SELECT d FROM DatosRegistro d WHERE d.apellidoMaterno = :apellidoMaterno"),
+    @NamedQuery(name = "Datosregistro.findByPais", query = "SELECT d FROM DatosRegistro d WHERE d.pais = :pais"),
+    @NamedQuery(name = "Datosregistro.findByRegion", query = "SELECT d FROM DatosRegistro d WHERE d.region = :region"),
+    @NamedQuery(name = "Datosregistro.findByCiudad", query = "SELECT d FROM DatosRegistro d WHERE d.ciudad = :ciudad"),
+    @NamedQuery(name = "Datosregistro.findByCalle", query = "SELECT d FROM DatosRegistro d WHERE d.calle = :calle"),
+    @NamedQuery(name = "Datosregistro.findByNumeroCalle", query = "SELECT d FROM DatosRegistro d WHERE d.numeroCalle = :numeroCalle"),
+    @NamedQuery(name = "Datosregistro.findByDepartamento", query = "SELECT d FROM DatosRegistro d WHERE d.departamento = :departamento"),
+    @NamedQuery(name = "Datosregistro.findByTelefono", query = "SELECT d FROM DatosRegistro d WHERE d.telefono = :telefono"),
+    @NamedQuery(name = "Datosregistro.findByCodigoPostal", query = "SELECT d FROM DatosRegistro d WHERE d.codigoPostal = :codigoPostal"),
+    @NamedQuery(name = "Datosregistro.findByCorreo", query = "SELECT d FROM DatosRegistro d WHERE d.correo = :correo")})
 
 
 public class DatosRegistro implements Serializable {
@@ -16,9 +36,9 @@ public class DatosRegistro implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic (optional = false)
 	@Column ( name ="idRegistro")
-	@GeneratedValue
 	private Integer idRegistro;
 	@Basic (optional = false)
 	@Column ( name ="Nombre")
@@ -56,6 +76,8 @@ public class DatosRegistro implements Serializable {
 	@Basic (optional = false)
 	@Column ( name ="Correo")
 	private String correo;
+	@OneToMany( cascade= CascadeType.ALL, mappedBy="idDatosRegistro")
+	private Collection<Usuarios> usuariosCollection;
 	
 	public DatosRegistro() {
 		super();
@@ -78,6 +100,7 @@ public class DatosRegistro implements Serializable {
 	    this.codigoPostal = codigoPostal;
 	    this.correo = correo;
 	}
+	
 	public Integer getIdRegistro() {
 		return idRegistro;
 	}
@@ -155,5 +178,12 @@ public class DatosRegistro implements Serializable {
 	}
 	public void setCorreo(String correo) {
 		this.correo = correo;
+	}
+	@XmlTransient
+	public Collection<Usuarios> getUsuariosCollection() {
+		return usuariosCollection;
+	}
+	public void setUsuariosCollection(Collection<Usuarios> usuariosCollection) {
+		this.usuariosCollection = usuariosCollection;
 	}
 }

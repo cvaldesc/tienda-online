@@ -13,6 +13,7 @@ public class Roles implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic (optional = false)
 	@Column (name = "idroles")
 	private Integer idroles;
@@ -38,29 +39,5 @@ public class Roles implements Serializable {
 	}
 	
 
-	public Integer getIdroles() {
-		return idroles;
-	}
 
-	public void setIdroles(Integer idroles) {
-		this.idroles = idroles;
-	}
-
-	public String getRolesNombre() {
-		return rolesNombre;
-	}
-
-	public void setRolesNombre(String rolesNombre) {
-		this.rolesNombre = rolesNombre;
-	}
-
-	public String getRolesDescripcion() {
-		return rolesDescripcion;
-	}
-
-	public void setRolesDescripcion(String rolesDescripcion) {
-		this.rolesDescripcion = rolesDescripcion;
-	}
-	
-   
 }

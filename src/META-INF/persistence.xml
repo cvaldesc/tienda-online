@@ -8,6 +8,7 @@
 		<class>model.entity.Privilegios</class>
 		<class>model.entity.Roles</class>
 		<class>model.entity.Usuarios</class>
+		<class>model.entity.UsuariosPK</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tienda-online" />
 			<property name="javax.persistence.jdbc.user" value="root" />

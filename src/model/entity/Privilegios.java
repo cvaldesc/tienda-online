@@ -14,6 +14,7 @@ public class Privilegios implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic (optional = false)
 	@Column (name ="idPrivilegios")
 	private Integer idPrivilegios;
@@ -28,28 +29,6 @@ public class Privilegios implements Serializable {
 		super();
 	}
 
-	public Integer getIdPrivilegios() {
-		return idPrivilegios;
-	}
 
-	public void setIdPrivilegios(Integer idPrivilegios) {
-		this.idPrivilegios = idPrivilegios;
-	}
-
-	public String getNombrePrivilegios() {
-		return nombrePrivilegios;
-	}
-
-	public void setNombrePrivilegios(String nombrePrivilegios) {
-		this.nombrePrivilegios = nombrePrivilegios;
-	}
-
-	public String getDetallePrivilegios() {
-		return detallePrivilegios;
-	}
-
-	public void setDetallePrivilegios(String detallePrivilegios) {
-		this.detallePrivilegios = detallePrivilegios;
-	}
    
 }
